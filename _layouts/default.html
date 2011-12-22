@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="en-us" http-equiv="Content-Language" />
+    <meta content="Code in the Wild" name="description" />
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/css/codeinthewild.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="alternate" type="application/atom+xml" title="Code in the Wild - Atom" href="/atom.xml" />
+    <title>Code in the Wild - {{ page.title }}</title>
+    {% include analytics.html %}
+  </head>
+  <body>
+    <div class="sidebar">
+      <a href="/"><img class="logo" src="/images/maples.jpg"/></a>
+      <div class="credits">Red Maples by Lawren Harris.</div>
+    </div>
+    <div class="main">
+      <div class="header">
+        <h1 class="title"><a href="/">Code in the Wild</a></h1>
+      </div>
+      {{ content }}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+ * {
+  margin:0;
+  padding:0;
+}
+
+html {
+  font-family: 'Inconsolata', Monaca, Menlo, Courier new;
+  line-height:1.5em;
+  font-size:14px;
+  margin-top:2em;
+  margin-left:2em;
+}
+
+h1, h2, h3 {
+  font-weight:normal;
+}
+
+h1, h2 {
+  margin-bottom:10px;
+}
+
+h1 {
+  font-size:45px;
+}
+
+h2 {
+  margin-top:29px;
+  font-size:20px;
+  font-size:25px;
+  background-color:#eee;
+  padding:8px;
+}
+
+a {
+  color:black;
+  text-decoration:underline;
+}
+
+/** side bar styles **/
+
+.sidebar {
+  float:left;
+  display:inline;
+  height:100%;
+  margin-right:25px;
+  margin-bottom:30px;
+}
+
+.main {
+  float:left;
+  display:inline;
+  height:100%;
+  position:relative;
+  max-width:400px;
+  margin-bottom:50px;
+}
+
+
+/* Header styles */
+
+.title a {
+  text-decoration:none;
+  color:black;
+  background-color:white;
+  border:0;
+  padding:0;
+  font-weight:bold;
+}
+
+.header {
+  padding-bottom:5px;
+}
+
+/* project list styles */
+
+.projects, .posts {
+  list-style-type:circle;
+  margin-left:2em;
+  margin-top:1em;
+  margin-bottom:1em;
+}
+
+.projects p {
+  margin-top:1em;
+}
+
+.projects li, .posts li {
+  margin:0;
+  margin-top:0.2em;
+}
+
+.credits {
+  display:block;
+  color:#aaa;
+  font-size:12px;
+  text-align:center;
+}
+
+.unknown {
+  margin-top:3em;
+}
