@@ -26,7 +26,6 @@ d3.csv('/javascript/2012-04-20/players.json', function (playerData) {
     var goals      = players.dimension(function (p) { return p.goals - p.goals % 50;});
     var years      = players.dimension(function (p) { return p.startYear;});
 
-
     countries.filter("Canada");
 
 
@@ -52,6 +51,14 @@ d3.csv('/javascript/2012-04-20/players.json', function (playerData) {
                     .attr("width", 600)
                     .attr("height", 1000);
 
+    var x = d3.scale.linear()
+                .domain([0, 500])
+                .range([0, 500]);
+
+    var xAxis = d3.svg.axis()
+                    .scale(x)
+                    .orient('bottom');
+
     var draw = function (year) {
         d3.selectAll('#total_player_count').text(players.size());
         d3.selectAll('#active_player_count').text(all.value());
@@ -61,16 +68,18 @@ d3.csv('/javascript/2012-04-20/players.json', function (playerData) {
                 .data(byProvince);
 
         bars.enter().append('rect')
-                .attr("class", function (d) { return d.key})
-                .attr("value", function (d) { return d.value})
+                .attr("class", function (d) { return d.key;})
+                .attr("value", function (d) { return d.value;})
+                .attr("domain", function (d) { return x(d.value);})
                 .attr("x", 40)
                 .attr("y", function (d, i) { return i * 10;})
-                .attr("width", function (d) { return d.value ;})
+                .attr("width", function (d) { return x(d.value);})
                 .attr("height", 10);
 
         bars.transition()
-                .duration(1000)
-                .attr("width", function (d) { return d.value; });
+                .duration(1200)
+                .attr("domain", function (d) { return x(d.value);})
+                .attr("width", function (d) { return x(d.value);});
 
         chart.selectAll('text')
                 .data(byProvince)
@@ -82,6 +91,13 @@ d3.csv('/javascript/2012-04-20/players.json', function (playerData) {
              .attr("text-anchor", "end") // text-align: right
              .text(function (d) { return d.key;});
     };
+
+    draw();
+
+    chart.append("g")
+            .attr("transform", function(d, i) { return "translate(30, 140)"})
+            .attr('class', 'axis')
+            .call(xAxis);
 
     var year = 1890;
     var drawDecades = function () {
