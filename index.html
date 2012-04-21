@@ -2,49 +2,31 @@
 layout: default
 title: Thoughts on Software
 ---
-<!--
 <h2>Writing</h2>
-<p>Writing on software</p>
-<ul class="posts">
-{% for post in site.posts limit:5 %}
-  <li>
-    <a href="{{post.url}}">{{post.title}}</a>
-    {{post.date |date:"%Y.%m.%d"}}
-  </li>
-{% endfor %}
-</ul>
--->
-<h2>Projects</h2>
-<p>Open source code for you to read, hack, use and make better.</p>
-<ul class="projects">
-  <li>
-    <a href="http://www.coffeelint.org">CoffeeLint</a>
-    <span>A linter for CoffeeScript code.</span>
-  </li>
-  <li>
-    <a href="http://github.com/clutchski/wolf">Wolf</a>
-    <span>An embryonic 2D Canvas game engine.</span>
-  </li>
-  <li>
-    <a href="http://github.com/clutchski/codeinthewild.com">Code in the Wild</a>
-    <span>The source code of this blog.</span>
-  </li>
-</ul>
-<p>And a website of mine.</p>
-<ul class="projects">
-  <li>
-    <a href="http://showbomber.com">Showbomber</a>
-    <span>A mash-up of NYC concerts and music videos.</span>
-  </li>
-</ul>
-
-
-<h2>About</h2>
 <p>
-  My name is Matthew Perpick. I write web software in Brooklyn, NY.
-  You can find me on <a href="http://github.com/clutchski">github</a>,
-  <a href="http://twitter.com/_shiningtree">twitter</a>,
-  <a href="http://shiningtree.tumblr.com">tumblr</a> and
-  <a href="http://vimeo.com/shiningtree">vimeo</a>. Get in touch at
-  clutchski@gmail.com.
+  <ul>
+  {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{post.url}}">{{post.title}}</a>
+      {{post.date |date:"%Y.%m.%d"}}
+    </li>
+  {% endfor %}
+  </ul>
 </p>
+
+<h2>Code</h2>
+<p>
+  <ul>
+    <li><a href="http://www.coffeelint.org">CoffeeLint</a></li>
+    <li><a href="http://github.com/clutchski/wolf">Wolf</a></li>
+  </ul>
+</p>
+
+<h2>Sites</h2>
+<p>
+  <ul>
+    <li><a href="http://www.coffeelint.org">CoffeeLint</a></li>
+    <li><a href="http://showbomber.com">Showbomber</a></li>
+  </ul>
+</p>
+

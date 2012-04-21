@@ -14,14 +14,24 @@
   </head>
   <body>
     <div class="sidebar">
-      <a href="/"><img class="logo" src="/images/maples.jpg"/></a>
-      <div class="credits">Red Maples by Lawren Harris.</div>
+      <div class="description">
+        <a href="/"><img src="/images/maples.jpg"></a>
+        <h1 class="title"><a href="/">Code in the Wild</a></h1>
+        <p>Matt Perpick * Brooklyn NY</p>
+        <p>
+          <ul class="contact_links">
+            <li><a href="mailto:matthewperpick@gmail.com">e-mail</a></li>
+            <li><a href="http://twitter.com/_shiningtree">twitter</a></li>
+            <li><a href="http://shiningtree.tumblr.com">tumblr</a></li>
+            <li><a href="http://github.com/clutchski">github</a></li>
+          </ul>
+        </p>
+      </div>
     </div>
     <div class="main">
-      <div class="header">
-        <h1 class="title"><a href="/">Code in the Wild</a></h1>
+      <div class="content">
+        {{ content }}
       </div>
-      {{ content }}
     </div>
   </body>
 </html>
