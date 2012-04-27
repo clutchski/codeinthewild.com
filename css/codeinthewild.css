@@ -1,22 +1,41 @@
- * {
+/* General styling */
+
+* {
   margin:0;
   padding:0;
 }
 
 h1, h2, h3, h4  {
-  margin-bottom:25px;
+  margin-bottom:10px;
   font-weight:normal;
 }
 
-p {
+h1 {
   margin-bottom:25px;
-  max-width:450px;
+}
+
+h3 {
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+
+p {
+  margin-bottom:15px;
 }
 
 body {
   font-family: 'Inconsolata', Monaca, Menlo, Courier;
   font-size: 14px;
   line-height: 20px;
+}
+
+ul {
+  list-style:none;
+}
+
+ul a {
+  color:black;
 }
 
 .sidebar {
@@ -64,18 +83,15 @@ body {
   margin-bottom:30px;
 }
 
-ul {
-  list-style:none;
-}
-
-ul li {
-}
-
-ul a {
-  color:black;
-}
-
 .content {
   padding-left:60px;
   padding:30px;
 }
+
+/* Post styling */
+
+.post {
+  max-width: 500px;
+}
+
+
