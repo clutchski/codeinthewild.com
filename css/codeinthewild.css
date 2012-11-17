@@ -7,11 +7,11 @@
 
 h1, h2, h3, h4  {
   margin-bottom:10px;
-  font-weight:normal;
 }
 
 h1 {
   margin-bottom:25px;
+  letter-spacing:0.01px;
 }
 
 h3 {
@@ -19,23 +19,18 @@ h3 {
   font-weight:bold;
 }
 
-
 p {
   margin-bottom:15px;
 }
 
 body {
-  font-family: 'Inconsolata', Monaca, Menlo, Courier;
-  font-size: 14px;
-  line-height: 20px;
+  font: 300 0.9em 'Inconsolata', Monaca, Menlo, Courier new;
+  line-height:1.416em;
+  color:#0b0b0b;
 }
 
 ul {
   list-style:none;
-}
-
-ul a {
-  color:black;
 }
 
 .sidebar {
@@ -45,8 +40,10 @@ ul a {
   left: 0;
   bottom: 0;
   right: auto;
-  padding-left;
-  border-right:1px solid #bbb;
+}
+
+a, a.visited {
+  color:inherit;
 }
 
 .main {
@@ -56,31 +53,28 @@ ul a {
 }
 
 .title {
-  font-size:18px;
-  margin-top:30px;
-  margin-bottom:30px;
+  margin-top:10px;
+  margin-bottom:5px;
+  font-size:20px;
 }
 
 .title a {
   text-decoration:none;
-  color:black;
-}
-
-.credits {
-  font-size:8px;
-  text-align:center;
-  font-style:italic;
 }
 
 .description {
+
   width: 180px;
-  margin: 30px auto;
-  color: #222;
-  font-size:10.5px;
+  margin: 20px auto;
 }
 
 .description p {
   margin-bottom:30px;
+}
+
+.contact_links {
+  font-size:90%;
+  color:#444;
 }
 
 .content {
