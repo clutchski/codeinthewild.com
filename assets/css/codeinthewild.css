@@ -88,4 +88,8 @@ a, a.visited {
   max-width: 500px;
 }
 
-
+.signoff {
+  color:#666;
+  font-size:80%;
+  font-style:italic;
+}

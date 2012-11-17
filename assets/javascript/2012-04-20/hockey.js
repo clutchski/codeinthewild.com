@@ -2,7 +2,7 @@
  * A visualization of NHL hockey players by place of birth and time.
  */
 
-d3.csv('/javascript/2012-04-20/players.json', function (playerData) {
+d3.csv('/assets/javascript/2012-04-20/players.json', function (playerData) {
 
     var countriesToShow = [
         'Canada',
