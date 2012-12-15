@@ -27,6 +27,7 @@ body {
   font: 300 0.9em 'Inconsolata', Monaca, Menlo, Courier new;
   line-height:1.416em;
   color:#0b0b0b;
+  padding-top:20px;
 }
 
 ul {
@@ -77,10 +78,6 @@ a, a.visited {
   color:#444;
 }
 
-.content {
-  padding-left:60px;
-  padding:30px;
-}
 
 /* Post styling */
 

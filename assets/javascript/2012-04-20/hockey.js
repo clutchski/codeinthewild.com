@@ -56,16 +56,17 @@ d3.csv('/assets/javascript/2012-04-20/players.json', function (playerData) {
     var byDecade   = decades.group().all();
 
 
-    var Chart = function (title, element, dimension, filter) {
+    var Chart = function (title, element, dimension, filter, onFilter) {
         this.title = title;
         this.element = element;
         this.dimension = dimension;
         this.filter = filter;
+        this.onFilter = onFilter;
 
         // Create the x-axis
         this.x = d3.scale.linear()
-                .domain([0, 5000])
-                .range([0, 300]);
+                    .domain([0, 5000])
+                    .range([0, 300]);
 
         this.xAxis = d3.svg.axis()
                       .scale(this.x)
@@ -77,23 +78,12 @@ d3.csv('/assets/javascript/2012-04-20/players.json', function (playerData) {
                 .domain([0, 200])
                 .range([0, this.dimension.length]);
 
-        this.brush = d3.svg.brush()
-            .on("brushstart", this.onBrushStart.bind(this))
-            .on("brush", this.onBrushMove.bind(this))
-            .on("brushend", this.onBrushEnd.bind(this));
-
         this.element.append('text')
             .attr('class', 'graph_title')
             .attr('x', 0)
             .attr('y', 20)
             .attr('color', 'black')
             .text(this.title);
-
-        this.element.append("g").attr("class", "brush")
-            .attr("transform", function(d, i) {
-                return "translate(60, " + 0 + ")";
-            })
-            .call(this.brush);
 
         this.draw();
 
@@ -103,20 +93,6 @@ d3.csv('/assets/javascript/2012-04-20/players.json', function (playerData) {
             .attr("transform", function(d, i) {
                 return "translate(60, " + axisY + ")";
             }).attr('class', 'axis').call(this.xAxis);
-    };
-
-    Chart.prototype.onBrushStart = function () {
-    };
-
-    Chart.prototype.onBrushMove = function () {
-    };
-
-    Chart.prototype.onBrushEnd = function () {
-    };
-
-
-    Chart.prototype.onFilter = function () {
-
     };
 
     Chart.prototype.draw = function () {
@@ -150,10 +126,18 @@ d3.csv('/assets/javascript/2012-04-20/players.json', function (playerData) {
              .attr("dy", 8)
              .attr("text-anchor", "end") // text-align: right
              .attr('font-size', barHeight)
-             .text(function (d) { return d.key || 'World';});
+             .text(function (d) { return d.key || 'World';})
+             .on('click', function (d, i) {
+                self.filter.filter(d.key);
+                self.onFilter();
+             });
+    };
 
-        this.element.call(this.brush.y(this.y).x(this.x));
-
+    var charts = [];
+    var redraw = function () {
+        charts.forEach(function(c) {
+            c.draw();
+        });
     };
 
     // Draw the bar chart.
@@ -161,31 +145,23 @@ d3.csv('/assets/javascript/2012-04-20/players.json', function (playerData) {
                     .attr("class", "chart")
                     .attr("width", 600)
                     .attr("height", 200);
-
-    var c1 = new Chart('Players by Province', chart, byProvince, provinces);
+    var c1 = new Chart('Players by Province', chart, byProvince, provinces, redraw);
 
     var chart = d3.select("#vis").append("svg")
                     .attr("class", "chart")
                     .attr("width", 600)
                     .attr("height", 200);
-
-    var c2 = new Chart('Players by Country', chart, byCountry, countries);
+    var c2 = new Chart('Players by Country', chart, byCountry, countries,
+            redraw);
 
     var chart = d3.select("#vis").append("svg")
                     .attr("class", "chart")
                     .attr("width", 600)
                     .attr("height",200);
 
-    var c3 = new Chart('Players by Decade', chart, byDecade, decades);
+    var c3 = new Chart('Players by Decade', chart, byDecade, decades, redraw);
 
-    //var charts = [c1, c2, c3];
-
-    //setTimeout(function () {
-    //    decades.filter([1960, 1980]);
-    //    countries.filter('Canada');
-    //    provinces.filter('ONT');
-    //    charts.forEach(function (chart) {
-    //        chart.draw();
-    //    });
-    //}, 2000);
+    charts.push(c1);
+    charts.push(c2);
+    charts.push(c3);
 });
