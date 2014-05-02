@@ -1,12 +1,11 @@
 ---
 layout: default
-title: Thoughts on Software
+title: Index
 ---
-  <ul>
-  {% for post in site.posts limit:5 %}
-    <li>
-      {{post.date |date:"%Y.%m.%d"}} - 
-      <a href="{{post.url}}">{{post.title}}</a>
-    </li>
+
+<ul class="posts list-unstyled">
+  {% for post in site.posts %}
+  <li><span>{{ post.date | date_to_string }}</span> &raquo;
+  <a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
-  </ul>
+</ul>

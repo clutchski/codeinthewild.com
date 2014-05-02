@@ -1,38 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{page.title}} | Code in the Wild</title>
 
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <meta content="en-us" http-equiv="Content-Language" />
-    <meta content="Code in the Wild" name="description" />
-    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
-    <link href="/assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="/assets/css/codeinthewild.css" media="screen" rel="stylesheet" type="text/css" />
-    <link rel="alternate" type="application/atom+xml" title="Code in the Wild - Atom" href="/atom.xml" />
-    <title>Code in the Wild - {{ page.title }}</title>
-    {% include analytics.html %}
+    <!-- Bootstrap -->
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        font-family:"monaco","menlo",monospace;
+        background-color:#fff;
+        color:#131211;
+        padding:20px;
+        height:100%;
+      }
+
+      h1, h2, h3, h4, h5 {
+        color:#030201;
+        font-weight:bold;
+        text-transform:uppercase;
+        letter-spacing:1px;
+        margin:20px 0 10px 0;
+      }
+
+      h1 { font-size: 12px;}
+      h2 { font-size: 18px;}
+
+      .title, .title a {
+        font-weight:normal;
+        letter-spacing:4px;
+        display:inline;
+        color:#999;
+        float:left;
+      }
+
+      .header {margin-bottom:25px;}
+      .post-header {margin-bottom:20px;}
+
+      .post-title, .post-date {
+        display:inline;
+        margin:0;
+      }
+
+      .post-title { float:left;}
+      .post-date {float:right;}
+
+      .post-header, .post p, .post code, .post pre {max-width:600px;}
+
+      .post p {
+        line-height:1.8;
+        margin-bottom:20px;
+      }
+
+      .footer {
+        margin-top:50px;
+        font-size:12px;
+      }
+
+      .footer, .footer a { color:#888;}
+
+      .elsewhere, .elsewhere a {
+        color:inherit;
+        font-size:12px;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div class="sidebar">
-      <div class="description">
-        <a href="/"><img class="logo" src="/assets/images/maples.jpg"></a>
+    <div class="container">
+      <div class="row header">
         <h1 class="title"><a href="/">Code in the Wild</a></h1>
-        <p class="credits">by Matthew Perpick</p>
-
-        <p>
-          <ul class="contact_links">
-            <li><a href="mailto:matthewperpick@gmail.com">e-mail</a></li>
-            <li><a href="http://twitter.com/_shiningtree">twitter</a></li>
-            <li><a href="http://shiningtree.tumblr.com">tumblr</a></li>
-            <li><a href="http://github.com/clutchski">github</a></li>
-          </ul>
-        </p>
       </div>
-    </div>
-    <div class="main">
-      <div class="content">
+      <div class="row">
         {{ content }}
       </div>
+
+      <div class="row footer">
+        by <a href="/about/">Matt Perpick</a>.
+      </div>
     </div>
+
   </body>
 </html>
