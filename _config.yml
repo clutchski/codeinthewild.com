@@ -2,3 +2,5 @@ name: Code in the Wild
 markdown: redcarpet
 pygments: true
 permalink: /:title
+
+exclude: ["CNAME", "Rakefile", "Gemfile", "README", "Gemfile.lock"]
